@@ -1,4 +1,4 @@
-# svelte-timer
+# svelte-reactive-timer
 
 A reactive timer for Svelte.
 
@@ -15,7 +15,7 @@ A reactive timer for Svelte.
 
 ```html
 <script lang="ts">
-  import { Timer } from 'svelte-timer'
+  import { Timer } from 'svelte-reactive-timer'
 
   // timer is for 10 seconds
   const timer = new Timer(10_000)
