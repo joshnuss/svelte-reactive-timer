@@ -15,7 +15,7 @@ A reactive timer for Svelte.
 
 [REPL](https://svelte.dev/playground/d8596d4480b24819ad8e29415b4e9906?version=5.20.5)
 
-```html
+```svelte
 <script lang="ts">
   import { Timer } from 'svelte-reactive-timer'
 
