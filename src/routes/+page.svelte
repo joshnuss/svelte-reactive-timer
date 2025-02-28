@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Timer } from '$lib/index.js';
-	import { lightFormat } from 'date-fns/lightFormat';
+  import { Timer } from '$lib/index.js'
+  import { lightFormat } from 'date-fns/lightFormat'
 
-	const timer = new Timer(10_000, { precision: 100 });
+  const timer = new Timer(10_000, { precision: 100 })
 </script>
 
 <h1>Timer</h1>
