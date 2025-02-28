@@ -4,10 +4,10 @@ A reactive timer for Svelte.
 
 ## Features
 
-- Declarative timer, instead of `setTimeout`/`setInterval`'s callback-style.
+- Declarative timer using Svelte Runes.
 - Can pause, stop, resume and reset timer.
-- Data-bindable properties, like `status`, `elapsed`, `duration`
-- Tracks current time.
+- Data-bindable properties, like `status`, `elapsed`, and `duration`.
+- Tracks current time, so it can be used as a data-bindable clock.
 - Configurable update precision.
 - Fully typed.
 
@@ -48,7 +48,7 @@ const timer = new Timer(10_000, { precision: 1_000 })
 
 All attributes are bindable.
 
-```
+```js
 // duration in ms
 timer.duration
 
@@ -60,9 +60,9 @@ timer.remaining
 
 // the status of the timer "running", "paused" or "stopped"
 timer.status
-timer.isRunning // true when status=running
-timer.isStopped // true when status=stopped
-timer.isPaused // true when status=paused
+timer.isRunning // true when status is running
+timer.isStopped // true when status is stopped
+timer.isPaused // true when status is paused
 
 // the current time
 // can be used as a clock
@@ -108,3 +108,7 @@ Resets the timer to the start, and sets `status` to `running`.
 ```js
 timer.reset()
 ```
+
+## License
+
+MIT
