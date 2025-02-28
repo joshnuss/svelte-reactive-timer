@@ -23,7 +23,10 @@ A reactive timer for Svelte.
   const timer = new Timer(10_000)
 </script>
 
-<h1>{timer.elapsed/1000}</h1>
+<h1>{timer.elapsed/1000}s</h1>
+
+<p>Status: {timer.status}</p>
+<p>Remaining: {timer.remaining/1000}s</p>
 
 <button onclick={() => timer.start()}>
   Start
