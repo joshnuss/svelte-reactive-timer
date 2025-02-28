@@ -6,7 +6,7 @@ A reactive timer for Svelte.
 
 - Declarative timer using Svelte Runes.
 - Can pause, stop, resume and reset timer.
-- Data-bindable properties, like `status`, `elapsed`, and `duration`.
+- Data-bindable properties, like `status`, `elapsed`, `remaining`, and `duration`.
 - Tracks current time, so it can be used as a data-bindable clock.
 - Configurable update precision.
 - Fully typed.
