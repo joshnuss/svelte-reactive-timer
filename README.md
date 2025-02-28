@@ -114,6 +114,9 @@ Resets the timer to the start, and sets `status` to `running`.
 
 ```js
 timer.reset()
+
+// can change duration during reset (optional)
+timer.reset(20_000)
 ```
 
 ## License
