@@ -63,19 +63,19 @@ timer.elapsed
 // remaining ms
 timer.remaining
 
-// the status of the timer "running", "paused" or "stopped"
+// status of the timer, either "running", "paused" or "stopped"
 timer.status
 
-// true when status is running
+// true when status is "running"
 timer.isRunning
 
-// true when status is stopped
+// true when status is "stopped"
 timer.isStopped
 
-// true when status is paused
+// true when status is "paused"
 timer.isPaused
 
-// the last updated time, can be used as a clock
+// last updated time, can be used as a clock
 timer.time
 ```
 
