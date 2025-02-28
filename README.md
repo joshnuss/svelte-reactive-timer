@@ -1,58 +1,110 @@
-# create-svelte
+# svelte-timer
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A reactive timer for Svelte.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## Features
 
-## Creating a project
+- Declarative timer, instead of `setTimeout`/`setInterval`'s callback-style.
+- Can pause, stop, resume and reset timer.
+- Data-bindable properties, like `status`, `elapsed`, `duration`
+- Tracks current time.
+- Configurable update precision.
+- Fully typed.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Example
 
-```bash
-# create a new project in the current directory
-npx sv create
+```html
+<script lang="ts">
+  import { Timer } from 'svelte-timer'
 
-# create a new project in my-app
-npx sv create my-app
+  // timer is for 10 seconds
+  const timer = new Timer(10_000)
+</script>
+
+<h1>{timer.elapsed/1000}</h1>
+
+<button onclick={() => timer.start()}>
+  Start
+</button>
+
+<button onclick={() => timer.stop()}>
+  Stop
+</button>
 ```
 
-## Developing
+## API
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Constructor
 
-```bash
-npm run dev
+```js
+// 10s timer
+const timer = new Timer(10_000)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+// 10s timer that will update every ~1s
+const timer = new Timer(10_000, { precision: 1_000 })
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+### Attributes
 
-## Building
+All attributes are bindable.
 
-To build your library:
+```
+// duration in ms
+timer.duration
 
-```bash
-npm run package
+// elapsed ms
+timer.elapsed
+
+// remaining ms
+timer.remaining
+
+// the status of the timer "running", "paused" or "stopped"
+timer.status
+timer.isRunning // true when status=running
+timer.isStopped // true when status=stopped
+timer.isPaused // true when status=paused
+
+// the current time
+// can be used as a clock
+timer.time
 ```
 
-To create a production version of your showcase app:
+### Start timer
 
-```bash
-npm run build
+Starts the timer and sets `status` to `running`.
+
+```js
+timer.start()
 ```
 
-You can preview the production build with `npm run preview`.
+### Stop timer
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Stops updating the timer and sets `status` to `stopped`.
 
-## Publishing
+```js
+timer.stop()
+```
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+### Pause timer
 
-To publish your library to [npm](https://www.npmjs.com):
+Stops the timer and sets `status` to `paused`.
 
-```bash
-npm publish
+```js
+timer.pause()
+```
+
+### Resume timer
+
+Resumes the timer and sets `status` to `running`.
+
+```js
+timer.resume()
+```
+
+### Reset timer
+
+Resets the timer to the start, and sets `status` to `running`.
+
+```js
+timer.reset()
 ```
