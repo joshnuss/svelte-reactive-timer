@@ -1,1 +1,1 @@
-// Reexport your entry components here
+export { Timer } from '$lib/timer.svelte.js';
