@@ -62,12 +62,17 @@ timer.remaining
 
 // the status of the timer "running", "paused" or "stopped"
 timer.status
-timer.isRunning // true when status is running
-timer.isStopped // true when status is stopped
-timer.isPaused // true when status is paused
 
-// the current time
-// can be used as a clock
+// true when status is running
+timer.isRunning
+
+// true when status is stopped
+timer.isStopped
+
+// true when status is paused
+timer.isPaused
+
+// the last updated time, can be used as a clock
 timer.time
 ```
 
