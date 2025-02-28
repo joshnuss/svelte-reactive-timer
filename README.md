@@ -28,9 +28,13 @@ A reactive timer for Svelte.
 <p>Status: {timer.status}</p>
 <p>Remaining: {timer.remaining/1000}s</p>
 
-<button onclick="{()" ="">timer.start()}>Start</button>
+<button onclick={() => timer.start()}>
+  Start
+</button>
 
-<button onclick="{()" ="">timer.stop()}>Stop</button>
+<button onclick={() => timer.stop()}>
+  Stop
+</button>
 ```
 
 ## API
